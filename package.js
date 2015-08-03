@@ -2,7 +2,7 @@ Package.describe({
   name: 'edgar-logging',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Provides logging functionality to Edgar',
   // URL to the Git repository containing the source code for this package.
   git: '',
   // By default, Meteor will default to using README.md for documentation.
@@ -12,11 +12,11 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.addFiles('edgar-logging.js');
+  api.use(['peter:edgar', 'percolate:synced-cron'])
+  api.addFiles('logging.js');
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('edgar-logging');
-  api.addFiles('edgar-logging-tests.js');
+Npm.depends({
+  'winston': '1.0.1',
+  'winston-loggly': '1.1.0'
 });
