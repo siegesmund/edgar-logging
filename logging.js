@@ -1,3 +1,8 @@
+
+//
+// THIS GITHUB REPO IS PUBLIC!
+//
+
 if(Meteor.isServer) {
   var winston = Npm.require('winston');
   Npm.require('winston-loggly');
