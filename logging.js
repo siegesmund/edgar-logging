@@ -4,13 +4,13 @@
 //
 
 if(Meteor.isServer) {
+    
   var winston = Npm.require('winston');
   Npm.require('winston-loggly');
 
   winston.add(winston.transports.Loggly, {
     inputToken: process.env.LOGGLY,
     subdomain: "houndfish",
-    tags: ["Edgar"],
     json:true
   });
 
@@ -24,4 +24,5 @@ if(Meteor.isServer) {
   SyncedCron.config({
     logger: cronLogger
   });
+
 }
